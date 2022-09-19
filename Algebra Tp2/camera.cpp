@@ -1,6 +1,6 @@
 #include "camera.h"
 
-void UserCamera()
+void UserCamera(Vector3 Endline1, Vector3 Endline2, Vector3 Endline3)
 {
 
 	Camera3D camera = { 0 };
@@ -10,7 +10,7 @@ void UserCamera()
 	camera.fovy = 45.0f;                              // Camera field-of-view Y
 	camera.projection = CAMERA_PERSPECTIVE;           // Camera mode type
 
-	Vector3 cubePosition = { 0.0f, 1.0f, 0.0f };
+	Vector3 spherePosition = { 0.0f, 0.0f, 0.0f };
 
 	SetCameraMode(camera, CAMERA_ORBITAL);
 
@@ -18,8 +18,6 @@ void UserCamera()
 
 	while (!WindowShouldClose())        // Detect window close button or ESC key
 	{
-
-		cout << "(" << camera.position.x << ") (" << camera.position.y << ") (" << camera.position.z << ")" << endl;
 
 		if (IsKeyPressed(KEY_SPACE))
 		{
@@ -41,16 +39,24 @@ void UserCamera()
 		// Draw
 		//----------------------------------------------------------------------------------
 		BeginDrawing();
-
 		ClearBackground(RAYWHITE);
 
+	//draw 2d
+		DrawRectangle(0, 0, 300, 100, SKYBLUE);
+		DrawText("Press SPACE to stop the rotation", 15, 15, 15, BLACK);
+
+	//draw 3d
 		BeginMode3D(camera);
-
-		DrawCube(cubePosition, 1.0f, 1.0f, 1.0f, RED);
-		DrawCubeWires(cubePosition, 1.0f, 1.0f, 1.0f, MAROON);
-
-		DrawGrid(10, 1.0f);
-
+		//main lines
+		DrawLine3D(spherePosition, Endline1, BLUE);
+		DrawLine3D(spherePosition, Endline2, RED);
+		DrawLine3D(spherePosition, Endline3, GREEN);
+		//union lines
+		DrawLine3D(Endline1, Endline2, BLUE);
+		DrawLine3D(Endline1, Endline3, RED);
+		DrawLine3D(Endline2, Endline3, GREEN);
+		//grid
+		DrawGrid(50, 1.0f);
 		EndMode3D();
 
 		EndDrawing();

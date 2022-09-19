@@ -4,4 +4,4 @@
 
 using namespace std;
 
-void UserCamera();
+void UserCamera(Vector3 Endline1, Vector3 Endline2, Vector3 Endline3);
