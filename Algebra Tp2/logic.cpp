@@ -1,12 +1,8 @@
 #include "raylib.h"
+#include "logic.h"
 #include "raymath.h"
 #include <algorithm>
 #include <iostream>
-
-#define PI_DEFINES 3.14
-#define CENTIMETER_DEFINES 0.0264583333
-
-using namespace std;
 
 struct VectorUser
 {
@@ -32,10 +28,15 @@ float getRadiansFromDegrees(int);
 float getCentimeterFromPixel(float);
 VectorUser createVector3(VectorUser);
 
-int main()
+int executeProgram()
 {
 	InitWindow(screenWidth, screenHeight, "Algebra");
     SetWindowState(FLAG_VSYNC_HINT);
+
+    /*cout << "Ingrese x: ";
+    cin >> variableUSerX;
+    cout << "Ingrese y: ";
+    cin >> variableUSerY;*/
 
 	while (!WindowShouldClose())
 	{
@@ -81,20 +82,20 @@ void calculateArea()
     float largeVector1 = Vector2Distance(vectorUser.startPos, vectorUser.endPos);
     float largeVector2 = Vector2Distance(vectorUser2.startPos, vectorUser2.endPos);
 
-    cout << largeVector1 << " Vector 1" << endl;
-    cout << largeVector2 << " Vector 2" << endl;
+    /*cout << largeVector1 << " Vector 1" << endl;
+    cout << largeVector2 << " Vector 2" << endl;*/
 
     float area = largeVector1 * largeVector2 / 2;
 
-    cout << area << " area" << endl;
+    /*cout << area << " area" << endl;
 
-    cout << getCentimeterFromPixel(area) << " centimetro" << endl;
+    cout << getCentimeterFromPixel(area) << " centimetro" << endl;*/
 
     float centimeter1 = getCentimeterFromPixel(area);
     int centimeter2 = getCentimeterFromPixel(area);
 
-    DrawText(TextFormat("El area es: %02f", centimeter1), 10, 370, 20, WHITE);
-    DrawText(TextFormat("El area redondeada es: %02i", centimeter2), 10, 400, 20, WHITE);
+    DrawText(TextFormat("El area es: %02f cm", centimeter1), 10, 370, 20, WHITE);
+    DrawText(TextFormat("El area redondeada es: %02i cm", centimeter2), 10, 400, 20, WHITE);
 }
 
 VectorUser copyOn90(VectorUser vectorUser)
