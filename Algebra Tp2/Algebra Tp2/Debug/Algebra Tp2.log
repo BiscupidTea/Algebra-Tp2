@@ -1,0 +1,4 @@
+﻿  main.cpp
+C:\Users\José\source\repos\Algebra Tp2\Algebra Tp2\main.cpp(73,16): warning C4244: 'return': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\José\source\repos\Algebra Tp2\Algebra Tp2\main.cpp(86,93): warning C4244: 'return': conversión de 'double' a 'float'; posible pérdida de datos
+  Algebra Tp2.vcxproj -> C:\Users\José\source\repos\Algebra Tp2\Debug\Algebra Tp2.exe
