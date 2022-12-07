@@ -50,7 +50,11 @@ int main()
 	SetCameraMode(MainCamera, CAMERA_ORBITAL);
 	system("cls");
 	InitVectors();
+	cout << endl;
+	getTotArea();
 
+	vector2. end = Point2;
+	vector3.end = Point3;
 	SetTargetFPS(30);
 
 	while (!WindowShouldClose()) {
@@ -172,9 +176,10 @@ void CreateVector1()
 	vector1.start.x = 0;
 	vector1.start.y = 0;
 	vector1.start.z = 0;
-	vector1.end.x = 5;
+	//cambiar estos valores para modificar el vector que se toma como referencia (cambiara todo)
+	vector1.end.x = 3;
 	vector1.end.y = 2;
-	vector1.end.z = -5;
+	vector1.end.z = -3;
 }
 
 void CreateVector2()
@@ -216,8 +221,8 @@ void Draw()
 	DrawGrid(10, 1.0f);
 
 	DrawLine3D(vector1.start, vector1.end, BLUE);
-	DrawLine3D(vector2.start, vector2.end, BLUE);
-	DrawLine3D(vector3.start, vector3.end, BLUE);
+	DrawLine3D(vector2.start, vector2.end, YELLOW);
+	DrawLine3D(vector3.start, vector3.end, RED);
 
 	DrawLine3D(Point1, Point2, YELLOW);
 	DrawLine3D(Point2, Point3, YELLOW);
